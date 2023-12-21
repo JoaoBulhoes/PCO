@@ -32,5 +32,10 @@ public class Sistema {
             handlerCriacao.addInteracaoAlimentares(new InteracaoAlimentar(nome, explicacao, alimento));
         }
     }
+
+    public void criarAlimento() {
+        String nome = handlerCriacao.indicarNome(scanner);
+        handlerCriacao.addAlimento(new Alimento(nome));
+    }
 }
 
