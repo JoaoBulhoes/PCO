@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.WeakHashMap;
 
 public class HandlerCriacao {
     private List<Alimento> alimentos = new ArrayList<>();
@@ -31,15 +30,16 @@ public class HandlerCriacao {
     public List<InteracaoAlimentar> indicarInteracao(Scanner scan) {
         List<InteracaoAlimentar> interacaoAlimentaresSelecionadas = new ArrayList<>();
 
-        for (int i = 0; i <= interacaoAlimentares.size(); i++) {
-            System.out.format("%s - %s", i, interacaoAlimentares.get(i));
-        }
-
-        int selected = scan.nextInt();
-        interacaoAlimentaresSelecionadas.add(interacaoAlimentares.get(selected));
-
         boolean exit = false;
         while (!exit) {
+            for (int i = 0; i <= interacaoAlimentares.size(); i++) {
+                System.out.format("%s - %s", i, interacaoAlimentares.get(i));
+            }
+
+            System.out.print("Escolha uma interacao alimentar: ");
+            int selected = scan.nextInt();
+            interacaoAlimentaresSelecionadas.add(interacaoAlimentares.get(selected));
+
             System.out.print("Deseja continuar a indicar interaçoes alimentares? s/n: ");
             String option = scan.nextLine();
 
