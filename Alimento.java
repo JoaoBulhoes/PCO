@@ -1,15 +1,15 @@
 public class Alimento {
-    private String name;
+    private String nome;
 
     public Alimento(String name) {
-        this.name = name;
+        this.nome = name;
     }
 
-    public String getName() {
-        return name;
+    public String getNome() {
+        return nome;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }

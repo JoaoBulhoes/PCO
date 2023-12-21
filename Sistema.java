@@ -47,5 +47,22 @@ public class Sistema {
         }
     }
 
+    public void consultarInteracoesAlimentares() {
+        List<InteracaoAlimentar> interacoesAlimentares = handlerCriacao.getInteracaoAlimentares();
+
+        System.out.println("Lista de Interações Alimentares: ");
+
+        for (InteracaoAlimentar interacaoAlimentar : interacoesAlimentares) {
+            System.out.println("Nome: " + interacaoAlimentar.getNome());
+            System.out.println("Explicação: " + interacaoAlimentar.getExplicacao());
+            System.out.println("Efeito: " + interacaoAlimentar.getEfeito());
+            System.out.println("Lista de Alimentos:");
+            for (Alimento alimento : interacaoAlimentar.getAlimento()) {
+                System.out.println("- " + alimento.getNome());
+            }
+
+        }
+    }
+
 }
 
