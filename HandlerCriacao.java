@@ -58,12 +58,23 @@ public class HandlerCriacao {
         return option.toLowerCase().equals("y") || option.toLowerCase().equals("yes");
     }
 
-    public void indicarPassword(String password) {}
-    public void indicarEmail(String Email) {}
-    public void indicarPapel(String papel) {}
-    public void indicarContacto(String contacto) {}
-    public void confirmarCriacaoUtilizador() {}
-    public void cancelarCriacaoUtilizador() {}
+    public void indicarPassword(String password) {
+    }
+
+    public void indicarEmail(String Email) {
+    }
+
+    public void indicarPapel(String papel) {
+    }
+
+    public void indicarContacto(String contacto) {
+    }
+
+    public void confirmarCriacaoUtilizador() {
+    }
+
+    public void cancelarCriacaoUtilizador() {
+    }
 
     public String indicarForma(Scanner scan) {
         System.out.print("Introduza a forma farmaceutica: ");
@@ -76,6 +87,7 @@ public class HandlerCriacao {
 
         return formaFarmaceutica;
     }
+
     public String indicarDosagem(Scanner scan) {
         System.out.print("Introduza a dosagem: ");
         String dosagem = scan.nextLine();
@@ -87,11 +99,18 @@ public class HandlerCriacao {
 
         return dosagem;
     }
-    public void confirmarCriacaoMedicamento() {}
-    public void cancelarCriacaoMedicamento() {}
 
-    public void confirmarCriacaoSubstancia() {}
-    public void cancelarCriacaoSubstancia() {}
+    public void confirmarCriacaoMedicamento() {
+    }
+
+    public void cancelarCriacaoMedicamento() {
+    }
+
+    public void confirmarCriacaoSubstancia() {
+    }
+
+    public void cancelarCriacaoSubstancia() {
+    }
 
     public String indicarExplicacao(Scanner scan) {
         System.out.print("Introduza a explicacao: ");
