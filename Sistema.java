@@ -33,6 +33,11 @@ public class Sistema {
         }
     }
 
+    public void criarAlimento() {
+        String nome = handlerCriacao.indicarNome(scanner);
+        handlerCriacao.addAlimento(new Alimento(nome));
+    }
+
     public void consultarSubstanciasAtivas() {
         List<SubstanciaAtiva> substanciaAtivas = handlerCriacao.getSubstanciaAtivas();
 

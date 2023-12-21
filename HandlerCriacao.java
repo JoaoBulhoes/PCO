@@ -111,6 +111,10 @@ public class HandlerCriacao {
         interacaoAlimentares.add(interacao);
     }
 
+    public void addAlimento(Alimento alimento) {
+        alimentos.add(alimento);
+    }
+
     public List<SubstanciaAtiva> getSubstanciaAtivas() {
         return substanciaAtivas;
     }
