@@ -40,10 +40,10 @@ public class Sistema {
 
         String explicacao = handlerCriacao.indicarExplicacao(scanner);
 
-        Alimento alimento = handlerCriacao.indicarAlimento(scanner);
+        List<Alimento> alimentos = handlerCriacao.indicarAlimento(scanner);
 
         if (handlerCriacao.confirmarCriacao(scanner)) {
-            handlerCriacao.addInteracaoAlimentares(new InteracaoAlimentar(nome, explicacao, alimento));
+            handlerCriacao.addInteracaoAlimentares(new InteracaoAlimentar(nome, explicacao, alimentos));
         }
     }
 
@@ -76,7 +76,7 @@ public class Sistema {
             System.out.println("Explicação: " + interacaoAlimentar.getExplicacao());
             System.out.println("Efeito: " + interacaoAlimentar.getEfeito());
             System.out.println("Lista de Alimentos:");
-            for (Alimento alimento : interacaoAlimentar.getAlimento()) {
+            for (Alimento alimento : interacaoAlimentar.getAlimentos()) {
                 System.out.println("- " + alimento.getNome());
             }
 

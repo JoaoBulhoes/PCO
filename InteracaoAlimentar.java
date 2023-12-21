@@ -1,15 +1,16 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class InteracaoAlimentar {
     private String nome;
     private String explicacao;
     private String efeito;
-    private Alimento alimento;
+    private List<Alimento> alimentos = new ArrayList<>();
 
-    public InteracaoAlimentar(String explicacao, String efeito, Alimento alimento) {
+    public InteracaoAlimentar(String explicacao, String efeito, List<Alimento> alimentos) {
         this.explicacao = explicacao;
         this.efeito = efeito;
-        this.alimento = alimento;
+        this.alimentos = alimentos;
     }
 
     public String getNome() {
@@ -36,11 +37,11 @@ public class InteracaoAlimentar {
         this.efeito = efeito;
     }
 
-    public Alimento getAlimento() {
-        return alimento;
+    public List<Alimento> getAlimentos() {
+        return alimentos;
     }
 
-    public void setAlimento(Alimento alimento) {
-        this.alimento = alimento;
+    public void setAlimento(List<Alimento> alimentos) {
+        this.alimentos = alimentos;
     }
 }

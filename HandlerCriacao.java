@@ -105,14 +105,28 @@ public class HandlerCriacao {
         return explicacao;
     }
 
-    public Alimento indicarAlimento(Scanner scan) {
-        for (int i = 0; i <= alimentos.size(); i++) {
-            System.out.format("%s - %s", i, alimentos.get(i));
+    public List<Alimento> indicarAlimento(Scanner scan) {
+        List<Alimento> alimentosSelecionados = new ArrayList<>();
+
+        boolean exit = false;
+        while (!exit) {
+            for (int i = 0; i <= alimentos.size(); i++) {
+                System.out.format("%s - %s", i, alimentos.get(i));
+            }
+
+            System.out.print("Escolha um alimento: ");
+            int selected = scan.nextInt();
+            alimentosSelecionados.add(alimentos.get(selected));
+
+            System.out.print("Deseja continuar a indicar alimentos? s/n: ");
+            String option = scan.nextLine();
+
+            if (option.toLowerCase().equals("y") || option.toLowerCase().equals("yes")) {
+                exit = true;
+            }
         }
 
-        int selected = scan.nextInt();
-
-        return alimentos.get(selected);
+        return alimentosSelecionados;
     }
 
     public List<SubstanciaAtiva> indicarSubstancia(Scanner scan) {
