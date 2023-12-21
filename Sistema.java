@@ -10,5 +10,16 @@ public class Sistema {
 
     private HandlerCriacao handlerCriacao = new HandlerCriacao();
     private HandlerPesquisa handlerPesquisa = new HandlerPesquisa();
+
+    public void criarSubstanciaAtiva() {
+
+        String nome = handlerCriacao.indicarNome(scanner);
+
+        List<InteracaoAlimentar> interacoes = handlerCriacao.indicarInteracao(scanner);
+
+        if (handlerCriacao.confirmarCriacao(scanner)) {
+            handlerCriacao.addSubstanciaAtiva(new SubstanciaAtiva(nome, interacoes));
+        }
+    }
 }
 
