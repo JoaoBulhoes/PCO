@@ -1,5 +1,21 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+import java.util.WeakHashMap;
+
 public class HandlerCriacao {
-    public void indicarNomeUtilizador(String nome) {}
+    public String indicarNome(Scanner scan) {
+        System.out.print("Introduza o nome: ");
+        String nome = scan.nextLine();
+
+        while (nome.length() == 0) {
+            System.out.print("Erro, o nome não pode ficar vazio, introduza de novo: ");
+            nome = scan.nextLine();
+        }
+
+        return nome;
+    }
+
     public void indicarPassword(String password) {}
     public void indicarEmail(String Email) {}
     public void indicarPapel(String papel) {}
@@ -7,13 +23,11 @@ public class HandlerCriacao {
     public void confirmarCriacaoUtilizador() {}
     public void cancelarCriacaoUtilizador() {}
 
-    public void indicarNomeMedicamento(String nome) {}
     public void indicarForma(String forma) {}
     public void indicarDosagem(String dosagem) {}
     public void confirmarCriacaoMedicamento() {}
     public void cancelarCriacaoMedicamento() {}
 
-    public void indicarNomeSubstancia(String nome) {}
     public void confirmarCriacaoSubstancia() {}
     public void cancelarCriacaoSubstancia() {}
 
