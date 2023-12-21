@@ -11,6 +11,20 @@ public class Sistema {
     private HandlerCriacao handlerCriacao = new HandlerCriacao();
     private HandlerPesquisa handlerPesquisa = new HandlerPesquisa();
 
+    public void criarMedicamento() {
+        String nome = handlerCriacao.indicarNome(scanner);
+
+        String formaFarmaceutica = handlerCriacao.indicarForma(scanner);
+
+        String dosagem = handlerCriacao.indicarDosagem(scanner);
+
+        List<SubstanciaAtiva> substancias = handlerCriacao.indicarSubstancia(scanner);
+
+        if (handlerCriacao.confirmarCriacao(scanner)) {
+            handlerCriacao.addMedicamento(new Medicamento(nome, formaFarmaceutica, dosagem, substancias));
+        }
+    }
+
     public void criarSubstanciaAtiva() {
         String nome = handlerCriacao.indicarNome(scanner);
 

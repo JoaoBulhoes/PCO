@@ -65,8 +65,28 @@ public class HandlerCriacao {
     public void confirmarCriacaoUtilizador() {}
     public void cancelarCriacaoUtilizador() {}
 
-    public void indicarForma(String forma) {}
-    public void indicarDosagem(String dosagem) {}
+    public String indicarForma(Scanner scan) {
+        System.out.print("Introduza a forma farmaceutica: ");
+        String formaFarmaceutica = scan.nextLine();
+
+        while (formaFarmaceutica.length() == 0) {
+            System.out.print("Erro, a forma não pode ficar vazia, introduza de novo: ");
+            formaFarmaceutica = scan.nextLine();
+        }
+
+        return formaFarmaceutica;
+    }
+    public String indicarDosagem(Scanner scan) {
+        System.out.print("Introduza a dosagem: ");
+        String dosagem = scan.nextLine();
+
+        while (dosagem.length() == 0) {
+            System.out.print("Erro, a dosagem não pode ficar vazia, introduza de novo: ");
+            dosagem = scan.nextLine();
+        }
+
+        return dosagem;
+    }
     public void confirmarCriacaoMedicamento() {}
     public void cancelarCriacaoMedicamento() {}
 
@@ -94,6 +114,30 @@ public class HandlerCriacao {
 
         return alimentos.get(selected);
     }
+
+    public List<SubstanciaAtiva> indicarSubstancia(Scanner scan) {
+        List<SubstanciaAtiva> substanciaAtivasSelecionadas = new ArrayList<>();
+
+        boolean exit = false;
+        while (!exit) {
+            for (int i = 0; i <= substanciaAtivas.size(); i++) {
+                System.out.format("%s - %s", i, substanciaAtivas.get(i));
+            }
+
+            System.out.print("Escolha uma substancia ativa: ");
+            int selected = scan.nextInt();
+            substanciaAtivasSelecionadas.add(substanciaAtivas.get(selected));
+
+            System.out.print("Deseja continuar a indicar substancias ativas? s/n: ");
+            String option = scan.nextLine();
+
+            if (option.toLowerCase().equals("y") || option.toLowerCase().equals("yes")) {
+                exit = true;
+            }
+        }
+
+        return substanciaAtivasSelecionadas;
+    }
     public void indicarEfeito(String efeito) {}
     public void indicarReferencia(String referencia) {}
     public void confirmarCriacaoInteracao() {}
@@ -113,6 +157,10 @@ public class HandlerCriacao {
 
     public void addAlimento(Alimento alimento) {
         alimentos.add(alimento);
+    }
+
+    public void addMedicamento(Medicamento medicamento) {
+        medicamentos.add(medicamento);
     }
 
     public List<SubstanciaAtiva> getSubstanciaAtivas() {

@@ -7,6 +7,13 @@ public class Medicamento {
     private String dosagem;
     private List<SubstanciaAtiva> substancias = new ArrayList<>();
 
+    public Medicamento(String nome, String formaFarmaceutica, String dosagem, List<SubstanciaAtiva> substancias) {
+        this.nome = nome;
+        this.formaFarmaceutica = formaFarmaceutica;
+        this.dosagem = dosagem;
+        this.substancias = substancias;
+    }
+
     public String getNome() {
         return nome;
     }
