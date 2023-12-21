@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * The type Sistema.
+ */
 public class Sistema {
     private final Scanner scanner = new Scanner(System.in);
 
@@ -11,6 +14,9 @@ public class Sistema {
     private HandlerCriacao handlerCriacao = new HandlerCriacao();
     private HandlerPesquisa handlerPesquisa = new HandlerPesquisa();
 
+    /**
+     * Criar medicamento.
+     */
     public void criarMedicamento() {
         String nome = handlerCriacao.indicarNome(scanner);
 
@@ -25,6 +31,9 @@ public class Sistema {
         }
     }
 
+    /**
+     * Criar substancia ativa.
+     */
     public void criarSubstanciaAtiva() {
         String nome = handlerCriacao.indicarNome(scanner);
 
@@ -35,6 +44,9 @@ public class Sistema {
         }
     }
 
+    /**
+     * Criar interacao alimentar.
+     */
     public void criarInteracaoAlimentar() {
         String nome = handlerCriacao.indicarNome(scanner);
 
@@ -47,11 +59,17 @@ public class Sistema {
         }
     }
 
+    /**
+     * Criar alimento.
+     */
     public void criarAlimento() {
         String nome = handlerCriacao.indicarNome(scanner);
         handlerCriacao.addAlimento(new Alimento(nome));
     }
 
+    /**
+     * Consultar substancias ativas.
+     */
     public void consultarSubstanciasAtivas() {
         List<SubstanciaAtiva> substanciaAtivas = handlerCriacao.getSubstanciaAtivas();
 
@@ -66,6 +84,9 @@ public class Sistema {
         }
     }
 
+    /**
+     * Consultar interacoes alimentares.
+     */
     public void consultarInteracoesAlimentares() {
         List<InteracaoAlimentar> interacoesAlimentares = handlerCriacao.getInteracaoAlimentares();
 
@@ -81,6 +102,42 @@ public class Sistema {
             }
 
         }
+    }
+
+    /**
+     * Registar utilizador utilizador.
+     *
+     * @param utilizadores the utilizadores
+     * @return the utilizador
+     */
+    public Utilizador registarUtilizador(List<Utilizador> utilizadores) {
+
+        System.out.println("Insera o seu nome: ");
+        String nome = scanner.nextLine();
+        System.out.println("Insera a sua password: ");
+        String password = scanner.nextLine();
+        System.out.println("Insera o seu email: ");
+        String email;
+        do {
+            System.out.println();
+            email =scanner.nextLine();
+
+            if (emailAlreadyExists(email, utilizadores)) {
+                System.out.println("Email já existe. Por favor escolha um email diferente.");
+            }
+        } while (emailAlreadyExists(email, utilizadores));
+
+        System.out.println("Utilizador registado!");
+        return new Utilizador(nome, password, email);
+    }
+
+    private static boolean emailAlreadyExists(String email, List<Utilizador> utilizadores) {
+        for (Utilizador utilizador : utilizadores) {
+            if (utilizador.getEmail().equals(email)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

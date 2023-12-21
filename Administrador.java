@@ -1,3 +1,6 @@
+/**
+ * The type Administrador.
+ */
 public class Administrador extends Utilizador{
     public Administrador(String nome, String password, String email) {
         super(nome, password, email);
