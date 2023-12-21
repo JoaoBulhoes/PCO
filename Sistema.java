@@ -37,5 +37,19 @@ public class Sistema {
         String nome = handlerCriacao.indicarNome(scanner);
         handlerCriacao.addAlimento(new Alimento(nome));
     }
+
+    public void consultarSubstanciasAtivas() {
+        List<SubstanciaAtiva> substanciaAtivas = handlerCriacao.getSubstanciaAtivas();
+
+        System.out.println("Lista de Substâncias Ativas: ");
+
+        for (SubstanciaAtiva substanciaAtiva : substanciaAtivas) {
+            System.out.println("Nome: " + substanciaAtiva.getNome());
+            System.out.println("Lista de Interações Alimentares:");
+            for (InteracaoAlimentar interacaoAlimentar : substanciaAtiva.getInteracoes()) {
+                System.out.println("- " + interacaoAlimentar.getNome());
+            }
+        }
+    }
 }
 
