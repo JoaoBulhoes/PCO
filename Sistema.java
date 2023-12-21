@@ -12,13 +12,24 @@ public class Sistema {
     private HandlerPesquisa handlerPesquisa = new HandlerPesquisa();
 
     public void criarSubstanciaAtiva() {
-
         String nome = handlerCriacao.indicarNome(scanner);
 
         List<InteracaoAlimentar> interacoes = handlerCriacao.indicarInteracao(scanner);
 
         if (handlerCriacao.confirmarCriacao(scanner)) {
             handlerCriacao.addSubstanciaAtiva(new SubstanciaAtiva(nome, interacoes));
+        }
+    }
+
+    public void criarInteracaoAlimentar() {
+        String nome = handlerCriacao.indicarNome(scanner);
+
+        String explicacao = handlerCriacao.indicarExplicacao(scanner);
+
+        Alimento alimento = handlerCriacao.indicarAlimento(scanner);
+
+        if (handlerCriacao.confirmarCriacao(scanner)) {
+            handlerCriacao.addInteracaoAlimentares(new InteracaoAlimentar(nome, explicacao, alimento));
         }
     }
 }

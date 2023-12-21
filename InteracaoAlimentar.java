@@ -1,17 +1,14 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 
 public class InteracaoAlimentar {
     private String explicacao;
     private String efeito;
-    private List<Alimento> alimentos = new ArrayList<>();
+    private Alimento alimento;
 
-    public InteracaoAlimentar(String explicacao, String efeito, List<Alimento> alimentos) {
+    public InteracaoAlimentar(String explicacao, String efeito, Alimento alimento) {
         this.explicacao = explicacao;
         this.efeito = efeito;
-        this.alimentos = alimentos;
+        this.alimento = alimento;
     }
 
     public String getExplicacao() {
@@ -30,11 +27,11 @@ public class InteracaoAlimentar {
         this.efeito = efeito;
     }
 
-    public List<Alimento> getAlimentos() {
-        return alimentos;
+    public Alimento getAlimento() {
+        return alimento;
     }
 
-    public void setAlimentos(List<Alimento> alimentos) {
-        this.alimentos = alimentos;
+    public void setAlimento(Alimento alimento) {
+        this.alimento = alimento;
     }
 }

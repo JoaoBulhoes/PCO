@@ -73,8 +73,27 @@ public class HandlerCriacao {
     public void confirmarCriacaoSubstancia() {}
     public void cancelarCriacaoSubstancia() {}
 
-    public void indicarExplicacao(String explicacao) {}
-    public void indicarAlimento(Alimento alimento) {}
+    public String indicarExplicacao(Scanner scan) {
+        System.out.print("Introduza a explicacao: ");
+        String explicacao = scan.nextLine();
+
+        while (explicacao.length() == 0) {
+            System.out.print("Erro, a explicacao não pode ficar vazia, introduza de novo: ");
+            explicacao = scan.nextLine();
+        }
+
+        return explicacao;
+    }
+
+    public Alimento indicarAlimento(Scanner scan) {
+        for (int i = 0; i <= alimentos.size(); i++) {
+            System.out.format("%s - %s", i, alimentos.get(i));
+        }
+
+        int selected = scan.nextInt();
+
+        return alimentos.get(selected);
+    }
     public void indicarEfeito(String efeito) {}
     public void indicarReferencia(String referencia) {}
     public void confirmarCriacaoInteracao() {}
