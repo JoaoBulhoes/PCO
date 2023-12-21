@@ -1,6 +1,7 @@
 import java.util.List;
 
 public class InteracaoAlimentar {
+    private String nome;
     private String explicacao;
     private String efeito;
     private Alimento alimento;
@@ -9,6 +10,14 @@ public class InteracaoAlimentar {
         this.explicacao = explicacao;
         this.efeito = efeito;
         this.alimento = alimento;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public String getExplicacao() {

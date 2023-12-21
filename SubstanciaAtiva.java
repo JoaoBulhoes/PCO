@@ -9,4 +9,20 @@ public class SubstanciaAtiva {
         this.nome = nome;
         this.interacoes = interacoes;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public List<InteracaoAlimentar> getInteracoes() {
+        return interacoes;
+    }
+
+    public void setInteracoes(List<InteracaoAlimentar> interacoes) {
+        this.interacoes = interacoes;
+    }
 }
