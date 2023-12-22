@@ -8,18 +8,23 @@ public class InteracaoAlimentar {
     private String nome;
     private String explicacao;
     private String efeito;
+    private String referencia;
     private List<Alimento> alimentos = new ArrayList<>();
 
     /**
      * Instantiates a new Interacao alimentar.
      *
+     * @param nome       the nome
      * @param explicacao the explicacao
      * @param efeito     the efeito
+     * @param referencia the referencia
      * @param alimentos  the alimentos
      */
-    public InteracaoAlimentar(String explicacao, String efeito, List<Alimento> alimentos) {
+    public InteracaoAlimentar(String nome, String explicacao, String efeito, String referencia, List<Alimento> alimentos) {
+        this.nome = nome;
         this.explicacao = explicacao;
         this.efeito = efeito;
+        this.referencia = referencia;
         this.alimentos = alimentos;
     }
 

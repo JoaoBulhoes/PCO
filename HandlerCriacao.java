@@ -267,26 +267,50 @@ public class HandlerCriacao {
     /**
      * Indicar efeito.
      *
-     * @param efeito the efeito
+     * @param scan the scan
+     * @return the string
      */
-    public void indicarEfeito(String efeito) {}
+    public String indicarEfeito(Scanner scan) {
+        System.out.print("Introduza o efeito: ");
+        String efeito = scan.nextLine();
+
+        while (efeito.length() == 0) {
+            System.out.print("Erro, o efeito não pode ficar vazio, introduza de novo: ");
+            efeito = scan.nextLine();
+        }
+
+        return efeito;
+    }
 
     /**
      * Indicar referencia.
      *
-     * @param referencia the referencia
+     * @param scan the scan
+     * @return the string
      */
-    public void indicarReferencia(String referencia) {}
+    public String indicarReferencia(Scanner scan) {
+        System.out.print("Introduza a referencia: ");
+        String referencia = scan.nextLine();
+
+        while (referencia.length() == 0) {
+            System.out.print("Erro, a referencia não pode ficar vazia, introduza de novo: ");
+            referencia = scan.nextLine();
+        }
+
+        return referencia;
+    }
 
     /**
      * Confirmar criacao interacao.
      */
-    public void confirmarCriacaoInteracao() {}
+    public void confirmarCriacaoInteracao() {
+    }
 
     /**
      * Cancelar criacao interacao.
      */
-    public void cancelarCriacaoInteracao() {}
+    public void cancelarCriacaoInteracao() {
+    }
 
     /**
      * Gets alimentos.

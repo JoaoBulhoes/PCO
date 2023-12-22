@@ -51,11 +51,13 @@ public class Sistema {
         String nome = handlerCriacao.indicarNome(scanner);
 
         String explicacao = handlerCriacao.indicarExplicacao(scanner);
+        String efeito = handlerCriacao.indicarEfeito(scanner);
+        String referencia = handlerCriacao.indicarReferencia(scanner);
 
         List<Alimento> alimentos = handlerCriacao.indicarAlimento(scanner);
 
         if (handlerCriacao.confirmarCriacao(scanner)) {
-            handlerCriacao.addInteracaoAlimentares(new InteracaoAlimentar(nome, explicacao, alimentos));
+            handlerCriacao.addInteracaoAlimentares(new InteracaoAlimentar(nome, explicacao, efeito, referencia, alimentos));
         }
     }
 
