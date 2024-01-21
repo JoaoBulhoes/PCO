@@ -31,10 +31,12 @@ public class Sistema {
     }
 
     public void searchFoodInteractions(){
+        System.out.print("Introduza a substancia da interação alimentar: ");
         System.out.println(handlerPesquisa.searchFoodInteractions(scanner.nextLine()));
     }
 
     public void searchLaboratories(){
+        System.out.print("Introduza o nome do laboratorio: ");
         System.out.println(handlerPesquisa.searchLaboratories(scanner.nextLine()));
     }
 
