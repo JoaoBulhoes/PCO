@@ -2,10 +2,19 @@ import java.util.List;
 import java.util.Scanner;
 
 public class HandlerCriacao {
-    private FoodTypeList foodTypeList = new FoodTypeList();
-    private FoodInteracionList foodInteractionList = new FoodInteracionList();
-    private SubstancesList substancesList = new SubstancesList();
-    private DrugList drugList = new DrugList();
+    private FoodTypeList foodTypeList;
+    private FoodInteracionList foodInteractionList;
+    private SubstancesList substancesList;
+    private DrugList drugList;
+    private LaboratoriesList laboratoriesList;
+
+    public HandlerCriacao(FoodTypeList foodTypeList, FoodInteracionList foodInteractionList, SubstancesList substancesList, DrugList drugList, LaboratoriesList laboratoriesList) {
+        this.foodTypeList = foodTypeList;
+        this.foodInteractionList = foodInteractionList;
+        this.substancesList = substancesList;
+        this.drugList = drugList;
+        this.laboratoriesList = laboratoriesList;
+    }
 
     public String insertName(Scanner scan) {
         System.out.print("Introduza o nome: ");
@@ -68,7 +77,7 @@ public class HandlerCriacao {
     public void cancelarCriacaoUtilizador() {
     }
 
-    public String indicarForma(Scanner scan) {
+    public String insertForm(Scanner scan) {
         System.out.print("Introduza a forma farmaceutica: ");
         String form = scan.nextLine();
 

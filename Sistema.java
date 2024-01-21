@@ -2,17 +2,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * The type Sistema.
- */
 public class Sistema {
     private final Scanner scanner = new Scanner(System.in);
 
     private List<Utente> utentes = new ArrayList<>();
     private List<Utilizador> utilizadores = new ArrayList<>();
 
-    private HandlerCriacao handlerCriacao = new HandlerCriacao();
-    private HandlerPesquisa handlerPesquisa = new HandlerPesquisa();
+    private HandlerCriacao handlerCriacao;
+    private HandlerPesquisa handlerPesquisa;
+
+    private FoodTypeList foodTypeList;
+    private FoodInteracionList foodInteractionList;
+    private SubstancesList substancesList;
+    private DrugList drugList;
+    private LaboratoriesList laboratoriesList;
+
+    public Sistema() {
+        foodTypeList = databaseImporter.importFoodTypes();
+        foodInteractionList = databaseImporter.importFoodInteractions();
+        substancesList = databaseImporter.importSubstances();
+        drugList = databaseImporter.importDrugs();
+        laboratoriesList = databaseImporter.importLaboratories();
+
+        handlerCriacao = new HandlerCriacao(foodTypeList, foodInteractionList, substancesList, drugList, laboratoriesList);
+        handlerPesquisa = new HandlerPesquisa(foodTypeList, foodInteractionList, substancesList, drugList, laboratoriesList);
+    }
 
     /**
      * Criar medicamento.
@@ -20,7 +34,7 @@ public class Sistema {
     public void criarMedicamento() {
         String name = handlerCriacao.insertName(scanner);
 
-        String form = handlerCriacao.indicarForma(scanner);
+        String form = handlerCriacao.insertForm(scanner);
 
         String dosage = handlerCriacao.insertDosage(scanner);
 
@@ -117,7 +131,7 @@ public class Sistema {
         String email;
         do {
             System.out.println();
-            email =scanner.nextLine();
+            email = scanner.nextLine();
 
             if (emailAlreadyExists(email, utilizadores)) {
                 System.out.println("Email já existe. Por favor escolha um email diferente.");

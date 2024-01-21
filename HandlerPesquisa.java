@@ -3,6 +3,20 @@
  */
 public class HandlerPesquisa {
 
+    private FoodTypeList foodTypeList;
+    private FoodInteracionList foodInteractionList;
+    private SubstancesList substancesList;
+    private DrugList drugList;
+    private LaboratoriesList laboratoriesList;
+
+    public HandlerPesquisa(FoodTypeList foodTypeList, FoodInteracionList foodInteractionList, SubstancesList substancesList, DrugList drugList, LaboratoriesList laboratoriesList) {
+        this.foodTypeList = foodTypeList;
+        this.foodInteractionList = foodInteractionList;
+        this.substancesList = substancesList;
+        this.drugList = drugList;
+        this.laboratoriesList = laboratoriesList;
+    }
+
     /**
      * Pedir mais substancias.
      */
