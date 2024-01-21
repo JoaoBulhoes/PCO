@@ -75,8 +75,17 @@ public class Drug {
      *
      * @return the substancias
      */
-    public String getSubstancias() {
+    public String getSubstances() {
         return Substances;
+    }
+
+    /**
+     * Gets laboratory.
+     *
+     * @return the laboratory
+     */
+    public String getLaboratory() {
+        return Laboratory;
     }
 
     @Override

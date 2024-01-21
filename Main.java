@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        Sistema s = new Sistema();
         int opcao;
 
         do {
@@ -12,18 +13,37 @@ public class Main {
 
             switch (opcao) {
                 case 1:
-                    pesquisarMedicamentos();
+                    s.viewDrugs();
                     break;
                 case 2:
-                    pesquisarSubstancias();
+                    s.viewSubstances();
                     break;
+
                 case 3:
-                    interacoesAlimentares();
+                    s.viewFoodInteractions();
                     break;
-                // Adicione mais cases conforme necessário para outras opções
+
+                case 4:
+                    s.createSubstance();
+                    break;
+
+                case 5:
+                    s.createDrug();
+                    break;
+
+                case 6:
+                    s.createFoodInteraction();
+                    break;
+
+                case 7:
+                    s.searchFoodInteractions();
+                    break;
+
+                case 8:
+                    s.searchLaboratories();
 
                 case 0:
-                    System.out.println("Saindo do programa. Até logo!");
+                    System.out.println("Saindo do programa. Obrigado!");
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
@@ -36,27 +56,15 @@ public class Main {
 
     private static void exibirMenu() {
         System.out.println("===== Menu =====");
-        System.out.println("1. Pesquisar Medicamentos");
-        System.out.println("2. Pesquisar Substâncias");
-        System.out.println("3. Interações Alimentares");
-        // Adicione mais opções de menu conforme necessário
+        System.out.println("1. Consultar Medicamentos");
+        System.out.println("2. Consultar Substâncias");
+        System.out.println("3. Consultar Interações Alimentares");
+        System.out.println("4. Criar Substância Ativa");
+        System.out.println("5. Criar Medicamento");
+        System.out.println("6. Criar Interação Alimentar");
+        System.out.println("7. Pesquisar Interação Alimentar");
+        System.out.println("8. Pesquisar Contacto de Farmacovigilância");
         System.out.println("0. Sair");
     }
 
-    private static void pesquisarMedicamentos() {
-        System.out.println("Executando pesquisa de medicamentos...");
-        // Adicione lógica específica para a opção 1
-    }
-
-    private static void pesquisarSubstancias() {
-        System.out.println("Executando pesquisa de substâncias...");
-        // Adicione lógica específica para a opção 2
-    }
-
-    private static void interacoesAlimentares() {
-        System.out.println("Executando pesquisa de interações alimentares...");
-        // Adicione lógica específica para a opção 3
-    }
-
-    // Adicione mais métodos conforme necessário para outras opções do menu
 }

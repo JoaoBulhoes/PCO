@@ -20,11 +20,11 @@ public class HandlerPesquisa {
         this.laboratoriesList = laboratoriesList;
     }
 
-    public List<Laboratory> searchLaboratories(String survaillance) {
+    public List<Laboratory> searchLaboratories(String name) {
         List<Laboratory> result = new ArrayList<>();
         List<Laboratory> list = laboratoriesList.getList();
         for (Laboratory laboratory : list) {
-            if (laboratory.getSurveillances().contains(survaillance)){
+            if (laboratory.getName().contains(name)){
                 result.add(laboratory);
             }
         }

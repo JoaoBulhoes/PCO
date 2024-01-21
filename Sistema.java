@@ -2,6 +2,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * The type Sistema.
+ */
 public class Sistema {
     private final Scanner scanner = new Scanner(System.in);
 
@@ -39,16 +42,12 @@ public class Sistema {
     /**
      * Criar medicamento.
      */
-    public void criarMedicamento() {
+    public void createDrug() {
         String name = handlerCriacao.insertName(scanner);
-
-        String form = handlerCriacao.insertForm(scanner);
-
+        String form = handlerCriacao.indicarForma(scanner);
         String dosage = handlerCriacao.insertDosage(scanner);
-
-        String laboratory = handlerCriacao.insertName(scanner);
-
-        String substances = handlerCriacao.insertName(scanner);
+        String laboratory = handlerCriacao.insertNameLaboratory(scanner);
+        String substances = handlerCriacao.insertNameSubstance(scanner);
 
         if (handlerCriacao.confirmarCriacao(scanner)) {
             handlerCriacao.addDrug(new Drug(name, form, dosage, laboratory, substances));
@@ -58,7 +57,7 @@ public class Sistema {
     /**
      * Criar substancia ativa.
      */
-    public void criarSubstanciaAtiva() {
+    public void createSubstance() {
         String name = handlerCriacao.insertName(scanner);
 
         if (handlerCriacao.confirmarCriacao(scanner)) {
@@ -85,7 +84,7 @@ public class Sistema {
     /**
      * Criar alimento.
      */
-    public void criarAlimento() {
+    public void createFoodType() {
         String nome = handlerCriacao.insertName(scanner);
         handlerCriacao.addFoodType(new FoodType(nome));
     }
@@ -93,7 +92,7 @@ public class Sistema {
     /**
      * Consultar substancias ativas.
      */
-    public void consultarSubstanciasAtivas() {
+    public void viewSubstances() {
         List<Substance> substances = handlerCriacao.getSubstancesList();
 
         System.out.println("Lista de Substâncias Ativas: ");
@@ -106,7 +105,7 @@ public class Sistema {
     /**
      * Consultar interacoes alimentares.
      */
-    public void consultarInteracoesAlimentares() {
+    public void viewFoodInteractions() {
         List<FoodInteraction> foodInteractions = handlerCriacao.getFoodInteractionList();
 
         System.out.println("Lista de Interações Alimentares: ");
@@ -116,10 +115,24 @@ public class Sistema {
             System.out.println("Explicação: " + foodInteraction.getExplanation());
             System.out.println("Efeito: " + foodInteraction.getEffect());
             System.out.println("Lista de Alimentos:");
-            for (String food : foodInteraction.getFood().split("|")) {
+            for (String food : foodInteraction.getFood().split("\\|")) {
                 System.out.println("- " + food);
             }
 
+        }
+    }
+
+    public void viewDrugs() {
+        List<Drug> drugs = handlerCriacao.getDrugList();
+
+        System.out.println("Lista de Medicamentos: ");
+        for (Drug drug : drugs) {
+            System.out.println("Nome: " + drug.getName());
+            System.out.println("Forma: " + drug.getForm());
+            System.out.println("Dosagem: " + drug.getDosage());
+            System.out.println("Laboratório: " + drug.getLaboratory());
+            System.out.println("Substâncias: " + drug.getSubstances());
+            System.out.println("");
         }
     }
 
@@ -129,7 +142,7 @@ public class Sistema {
      * @param utilizadores the utilizadores
      * @return the utilizador
      */
-    public Utilizador registarUtilizador(List<Utilizador> utilizadores) {
+    public Utilizador registerUser(List<Utilizador> utilizadores) {
 
         System.out.println("Insera o seu nome: ");
         String nome = scanner.nextLine();
@@ -139,7 +152,7 @@ public class Sistema {
         String email;
         do {
             System.out.println();
-            email = scanner.nextLine();
+            email =scanner.nextLine();
 
             if (emailAlreadyExists(email, utilizadores)) {
                 System.out.println("Email já existe. Por favor escolha um email diferente.");

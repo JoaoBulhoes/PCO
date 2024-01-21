@@ -10,7 +10,11 @@ public class Laboratory {
                 '}';
     }
 
-    public String getSurveillances() {
+    public String getName() {
+        return Name;
+    }
+
+    public String getSurveillance() {
         return Surveillance;
     }
 }

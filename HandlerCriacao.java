@@ -28,6 +28,30 @@ public class HandlerCriacao {
         return name;
     }
 
+    public String insertNameLaboratory(Scanner scan) {
+        System.out.print("Introduza o nome do laboratório: ");
+        String name = scan.nextLine();
+
+        while (name.length() == 0) {
+            System.out.print("Erro, o nome não pode ficar vazio, introduza de novo: ");
+            name = scan.nextLine();
+        }
+
+        return name;
+    }
+
+    public String insertNameSubstance(Scanner scan) {
+        System.out.print("Introduza o nome das substâncias: ");
+        String name = scan.nextLine();
+
+        while (name.length() == 0) {
+            System.out.print("Erro, o nome não pode ficar vazio, introduza de novo: ");
+            name = scan.nextLine();
+        }
+
+        return name;
+    }
+
     public String indicarInteracao(Scanner scan) {
         StringBuilder selectedFoodInteractions = new StringBuilder();
 
@@ -77,7 +101,7 @@ public class HandlerCriacao {
     public void cancelarCriacaoUtilizador() {
     }
 
-    public String insertForm(Scanner scan) {
+    public String indicarForma(Scanner scan) {
         System.out.print("Introduza a forma farmaceutica: ");
         String form = scan.nextLine();
 
