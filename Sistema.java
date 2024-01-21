@@ -18,16 +18,18 @@ public class Sistema {
      * Criar medicamento.
      */
     public void criarMedicamento() {
-        String nome = handlerCriacao.indicarNome(scanner);
+        String name = handlerCriacao.insertName(scanner);
 
-        String formaFarmaceutica = handlerCriacao.indicarForma(scanner);
+        String form = handlerCriacao.indicarForma(scanner);
 
-        String dosagem = handlerCriacao.indicarDosagem(scanner);
+        String dosage = handlerCriacao.insertDosage(scanner);
 
-        List<SubstanciaAtiva> substancias = handlerCriacao.indicarSubstancia(scanner);
+        String laboratory = handlerCriacao.insertName(scanner);
+
+        String substances = handlerCriacao.insertName(scanner);
 
         if (handlerCriacao.confirmarCriacao(scanner)) {
-            handlerCriacao.addMedicamento(new Medicamento(nome, formaFarmaceutica, dosagem, substancias));
+            handlerCriacao.addDrug(new Drug(name, form, dosage, laboratory, substances));
         }
     }
 
@@ -35,29 +37,26 @@ public class Sistema {
      * Criar substancia ativa.
      */
     public void criarSubstanciaAtiva() {
-        String nome = handlerCriacao.indicarNome(scanner);
-
-        List<InteracaoAlimentar> interacoes = handlerCriacao.indicarInteracao(scanner);
+        String name = handlerCriacao.insertName(scanner);
 
         if (handlerCriacao.confirmarCriacao(scanner)) {
-            handlerCriacao.addSubstanciaAtiva(new SubstanciaAtiva(nome, interacoes));
+            handlerCriacao.addSubstance(new Substance(name));
         }
     }
 
     /**
      * Criar interacao alimentar.
      */
-    public void criarInteracaoAlimentar() {
-        String nome = handlerCriacao.indicarNome(scanner);
-
-        String explicacao = handlerCriacao.indicarExplicacao(scanner);
-        String efeito = handlerCriacao.indicarEfeito(scanner);
-        String referencia = handlerCriacao.indicarReferencia(scanner);
-
-        List<Alimento> alimentos = handlerCriacao.indicarAlimento(scanner);
+    public void createFoodInteraction() {
+        String bibliography = handlerCriacao.insertBibliography(scanner);
+        String effect = handlerCriacao.insertEffect(scanner);
+        int effectLevel = handlerCriacao.insertEffectLevel(scanner);
+        String explanation = handlerCriacao.inserExplanation(scanner);
+        String food = handlerCriacao.insertFood(scanner);
+        String substances = handlerCriacao.insertSubstance(scanner);
 
         if (handlerCriacao.confirmarCriacao(scanner)) {
-            handlerCriacao.addInteracaoAlimentares(new InteracaoAlimentar(nome, explicacao, efeito, referencia, alimentos));
+            handlerCriacao.addFoodInteraction(new FoodInteraction(bibliography, effect, effectLevel, explanation, food, substances));
         }
     }
 
@@ -65,24 +64,20 @@ public class Sistema {
      * Criar alimento.
      */
     public void criarAlimento() {
-        String nome = handlerCriacao.indicarNome(scanner);
-        handlerCriacao.addAlimento(new Alimento(nome));
+        String nome = handlerCriacao.insertName(scanner);
+        handlerCriacao.addFoodType(new FoodType(nome));
     }
 
     /**
      * Consultar substancias ativas.
      */
     public void consultarSubstanciasAtivas() {
-        List<SubstanciaAtiva> substanciaAtivas = handlerCriacao.getSubstanciaAtivas();
+        List<Substance> substances = handlerCriacao.getSubstancesList();
 
         System.out.println("Lista de Substâncias Ativas: ");
 
-        for (SubstanciaAtiva substanciaAtiva : substanciaAtivas) {
-            System.out.println("Nome: " + substanciaAtiva.getNome());
-            System.out.println("Lista de Interações Alimentares:");
-            for (InteracaoAlimentar interacaoAlimentar : substanciaAtiva.getInteracoes()) {
-                System.out.println("- " + interacaoAlimentar.getNome());
-            }
+        for (Substance substance : substances) {
+            System.out.println("Nome: " + substance.getSubstance());
         }
     }
 
@@ -90,17 +85,17 @@ public class Sistema {
      * Consultar interacoes alimentares.
      */
     public void consultarInteracoesAlimentares() {
-        List<InteracaoAlimentar> interacoesAlimentares = handlerCriacao.getInteracaoAlimentares();
+        List<FoodInteraction> foodInteractions = handlerCriacao.getFoodInteractionList();
 
         System.out.println("Lista de Interações Alimentares: ");
 
-        for (InteracaoAlimentar interacaoAlimentar : interacoesAlimentares) {
-            System.out.println("Nome: " + interacaoAlimentar.getNome());
-            System.out.println("Explicação: " + interacaoAlimentar.getExplicacao());
-            System.out.println("Efeito: " + interacaoAlimentar.getEfeito());
+        for (FoodInteraction foodInteraction : foodInteractions) {
+            System.out.println("Nome: " + foodInteraction.getBibliography());
+            System.out.println("Explicação: " + foodInteraction.getExplanation());
+            System.out.println("Efeito: " + foodInteraction.getEffect());
             System.out.println("Lista de Alimentos:");
-            for (Alimento alimento : interacaoAlimentar.getAlimentos()) {
-                System.out.println("- " + alimento.getNome());
+            for (String food : foodInteraction.getFood().split("|")) {
+                System.out.println("- " + food);
             }
 
         }

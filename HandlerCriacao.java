@@ -1,62 +1,36 @@
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * The type Handler criacao.
- */
 public class HandlerCriacao {
-    private List<Alimento> alimentos = new ArrayList<>();
-    private List<InteracaoAlimentar> interacaoAlimentares = new ArrayList<>();
-    private List<SubstanciaAtiva> substanciaAtivas = new ArrayList<>();
-    private List<Medicamento> medicamentos = new ArrayList<>();
+    private FoodTypeList foodTypeList = new FoodTypeList();
+    private FoodInteracionList foodInteractionList = new FoodInteracionList();
+    private SubstancesList substancesList = new SubstancesList();
+    private DrugList drugList = new DrugList();
 
-    /**
-     * Instantiates a new Handler criacao.
-     */
-    public HandlerCriacao() {
-        // carregr medicamentos
-        // carregar interacoes alimentares
-        // carregar substancias ativas
-        // carregar alimentos
-    }
-
-    /**
-     * Indicar nome string.
-     *
-     * @param scan the scan
-     * @return the string
-     */
-    public String indicarNome(Scanner scan) {
+    public String insertName(Scanner scan) {
         System.out.print("Introduza o nome: ");
-        String nome = scan.nextLine();
+        String name = scan.nextLine();
 
-        while (nome.length() == 0) {
+        while (name.length() == 0) {
             System.out.print("Erro, o nome não pode ficar vazio, introduza de novo: ");
-            nome = scan.nextLine();
+            name = scan.nextLine();
         }
 
-        return nome;
+        return name;
     }
 
-    /**
-     * Indicar interacao list.
-     *
-     * @param scan the scan
-     * @return the list
-     */
-    public List<InteracaoAlimentar> indicarInteracao(Scanner scan) {
-        List<InteracaoAlimentar> interacaoAlimentaresSelecionadas = new ArrayList<>();
+    public String indicarInteracao(Scanner scan) {
+        StringBuilder selectedFoodInteractions = new StringBuilder();
 
         boolean exit = false;
         while (!exit) {
-            for (int i = 0; i <= interacaoAlimentares.size(); i++) {
-                System.out.format("%s - %s", i, interacaoAlimentares.get(i));
+            for (int i = 0; i <= foodTypeList.size(); i++) {
+                System.out.format("%s - %s", i, foodTypeList.get(i));
             }
 
             System.out.print("Escolha uma interacao alimentar: ");
             int selected = scan.nextInt();
-            interacaoAlimentaresSelecionadas.add(interacaoAlimentares.get(selected));
+            selectedFoodInteractions.append(foodTypeList.get(selected).getType()).append("|");
 
             System.out.print("Deseja continuar a indicar interaçoes alimentares? s/n: ");
             String option = scan.nextLine();
@@ -66,15 +40,9 @@ public class HandlerCriacao {
             }
         }
 
-        return interacaoAlimentaresSelecionadas;
+        return selectedFoodInteractions.toString();
     }
 
-    /**
-     * Confirmar criacao boolean.
-     *
-     * @param scan the scan
-     * @return the boolean
-     */
     public boolean confirmarCriacao(Scanner scan) {
         System.out.print("Confirma a criacao? y/n: ");
         String option = scan.nextLine();
@@ -82,176 +50,72 @@ public class HandlerCriacao {
         return option.toLowerCase().equals("y") || option.toLowerCase().equals("yes");
     }
 
-    /**
-     * Indicar password.
-     *
-     * @param password the password
-     */
     public void indicarPassword(String password) {
     }
 
-    /**
-     * Indicar email.
-     *
-     * @param Email the email
-     */
     public void indicarEmail(String Email) {
     }
 
-    /**
-     * Indicar papel.
-     *
-     * @param papel the papel
-     */
     public void indicarPapel(String papel) {
     }
 
-    /**
-     * Indicar contacto.
-     *
-     * @param contacto the contacto
-     */
     public void indicarContacto(String contacto) {
     }
 
-    /**
-     * Confirmar criacao utilizador.
-     */
     public void confirmarCriacaoUtilizador() {
     }
 
-    /**
-     * Cancelar criacao utilizador.
-     */
     public void cancelarCriacaoUtilizador() {
     }
 
-    /**
-     * Indicar forma string.
-     *
-     * @param scan the scan
-     * @return the string
-     */
     public String indicarForma(Scanner scan) {
         System.out.print("Introduza a forma farmaceutica: ");
-        String formaFarmaceutica = scan.nextLine();
+        String form = scan.nextLine();
 
-        while (formaFarmaceutica.length() == 0) {
+        while (form.length() == 0) {
             System.out.print("Erro, a forma não pode ficar vazia, introduza de novo: ");
-            formaFarmaceutica = scan.nextLine();
+            form = scan.nextLine();
         }
 
-        return formaFarmaceutica;
+        return form;
     }
 
-    /**
-     * Indicar dosagem string.
-     *
-     * @param scan the scan
-     * @return the string
-     */
-    public String indicarDosagem(Scanner scan) {
+    public String insertDosage(Scanner scan) {
         System.out.print("Introduza a dosagem: ");
-        String dosagem = scan.nextLine();
+        String dosage = scan.nextLine();
 
-        while (dosagem.length() == 0) {
+        while (dosage.length() == 0) {
             System.out.print("Erro, a dosagem não pode ficar vazia, introduza de novo: ");
-            dosagem = scan.nextLine();
+            dosage = scan.nextLine();
         }
 
-        return dosagem;
+        return dosage;
     }
 
-    /**
-     * Confirmar criacao medicamento.
-     */
-    public void confirmarCriacaoMedicamento() {
-    }
-
-    /**
-     * Cancelar criacao medicamento.
-     */
-    public void cancelarCriacaoMedicamento() {
-    }
-
-    /**
-     * Confirmar criacao substancia.
-     */
-    public void confirmarCriacaoSubstancia() {
-    }
-
-    /**
-     * Cancelar criacao substancia.
-     */
-    public void cancelarCriacaoSubstancia() {
-    }
-
-    /**
-     * Indicar explicacao string.
-     *
-     * @param scan the scan
-     * @return the string
-     */
-    public String indicarExplicacao(Scanner scan) {
+    public String inserExplanation(Scanner scan) {
         System.out.print("Introduza a explicacao: ");
-        String explicacao = scan.nextLine();
+        String explanation = scan.nextLine();
 
-        while (explicacao.length() == 0) {
+        while (explanation.length() == 0) {
             System.out.print("Erro, a explicacao não pode ficar vazia, introduza de novo: ");
-            explicacao = scan.nextLine();
+            explanation = scan.nextLine();
         }
 
-        return explicacao;
+        return explanation;
     }
 
-    /**
-     * Indicar alimento list.
-     *
-     * @param scan the scan
-     * @return the list
-     */
-    public List<Alimento> indicarAlimento(Scanner scan) {
-        List<Alimento> alimentosSelecionados = new ArrayList<>();
+    public String insertSubstance(Scanner scan) {
+        StringBuilder selectedSubstances = new StringBuilder();
 
         boolean exit = false;
         while (!exit) {
-            for (int i = 0; i <= alimentos.size(); i++) {
-                System.out.format("%s - %s", i, alimentos.get(i));
-            }
-
-            System.out.print("Escolha um alimento: ");
-            int selected = scan.nextInt();
-            alimentosSelecionados.add(alimentos.get(selected));
-
-            System.out.print("Deseja continuar a indicar alimentos? s/n: ");
-            String option = scan.nextLine();
-
-            if (option.toLowerCase().equals("y") || option.toLowerCase().equals("yes")) {
-                exit = true;
-            }
-        }
-
-        return alimentosSelecionados;
-    }
-
-    /**
-     * Indicar substancia list.
-     *
-     * @param scan the scan
-     * @return the list
-     */
-    public List<SubstanciaAtiva> indicarSubstancia(Scanner scan) {
-        List<SubstanciaAtiva> substanciaAtivasSelecionadas = new ArrayList<>();
-
-        boolean exit = false;
-        while (!exit) {
-            for (int i = 0; i <= substanciaAtivas.size(); i++) {
-                System.out.format("%s - %s", i, substanciaAtivas.get(i));
+            for (int i = 0; i <= substancesList.size(); i++) {
+                System.out.format("%s - %s", i, substancesList.get(i));
             }
 
             System.out.print("Escolha uma substancia ativa: ");
             int selected = scan.nextInt();
-            substanciaAtivasSelecionadas.add(substanciaAtivas.get(selected));
+            selectedSubstances.append(substancesList.get(selected).getSubstance()).append("|");
 
             System.out.print("Deseja continuar a indicar substancias ativas? s/n: ");
             String option = scan.nextLine();
@@ -261,126 +125,96 @@ public class HandlerCriacao {
             }
         }
 
-        return substanciaAtivasSelecionadas;
+        return selectedSubstances.toString();
     }
 
-    /**
-     * Indicar efeito.
-     *
-     * @param scan the scan
-     * @return the string
-     */
-    public String indicarEfeito(Scanner scan) {
+    public String insertEffect(Scanner scan) {
         System.out.print("Introduza o efeito: ");
-        String efeito = scan.nextLine();
+        String effect = scan.nextLine();
 
-        while (efeito.length() == 0) {
+        while (effect.length() == 0) {
             System.out.print("Erro, o efeito não pode ficar vazio, introduza de novo: ");
-            efeito = scan.nextLine();
+            effect = scan.nextLine();
         }
 
-        return efeito;
+        return effect;
     }
 
-    /**
-     * Indicar referencia.
-     *
-     * @param scan the scan
-     * @return the string
-     */
-    public String indicarReferencia(Scanner scan) {
-        System.out.print("Introduza a referencia: ");
-        String referencia = scan.nextLine();
-
-        while (referencia.length() == 0) {
-            System.out.print("Erro, a referencia não pode ficar vazia, introduza de novo: ");
-            referencia = scan.nextLine();
-        }
-
-        return referencia;
-    }
-
-    /**
-     * Confirmar criacao interacao.
-     */
     public void confirmarCriacaoInteracao() {
     }
 
-    /**
-     * Cancelar criacao interacao.
-     */
     public void cancelarCriacaoInteracao() {
     }
 
-    /**
-     * Gets alimentos.
-     *
-     * @return the alimentos
-     */
-    public List<Alimento> getAlimentos() {
-        return alimentos;
+    public List<FoodType> getFoodTypeList() {
+        return foodTypeList.getList();
     }
 
-    /**
-     * Gets interacao alimentares.
-     *
-     * @return the interacao alimentares
-     */
-    public List<InteracaoAlimentar> getInteracaoAlimentares() {
-        return interacaoAlimentares;
+    public List<FoodInteraction> getFoodInteractionList() {
+        return foodInteractionList.getList();
     }
 
-    /**
-     * Add interacao alimentares.
-     *
-     * @param interacao the interacao
-     */
-    public void addInteracaoAlimentares(InteracaoAlimentar interacao) {
-        interacaoAlimentares.add(interacao);
+    public void addFoodInteraction(FoodInteraction interacao) {
+        foodInteractionList.add(interacao);
     }
 
-    /**
-     * Add alimento.
-     *
-     * @param alimento the alimento
-     */
-    public void addAlimento(Alimento alimento) {
-        alimentos.add(alimento);
+    public void addFoodType(FoodType foodType) {
+        foodTypeList.add(foodType);
     }
 
-    /**
-     * Add medicamento.
-     *
-     * @param medicamento the medicamento
-     */
-    public void addMedicamento(Medicamento medicamento) {
-        medicamentos.add(medicamento);
+    public void addDrug(Drug drug) {
+        drugList.add(drug);
     }
 
-    /**
-     * Gets substancia ativas.
-     *
-     * @return the substancia ativas
-     */
-    public List<SubstanciaAtiva> getSubstanciaAtivas() {
-        return substanciaAtivas;
+    public List<Substance> getSubstancesList() {
+        return substancesList.getList();
     }
 
-    /**
-     * Add substancia ativa.
-     *
-     * @param substancia the substancia
-     */
-    public void addSubstanciaAtiva(SubstanciaAtiva substancia) {
-        substanciaAtivas.add(substancia);
+    public void addSubstance(Substance substancia) {
+        substancesList.add(substancia);
     }
 
-    /**
-     * Gets medicamentos.
-     *
-     * @return the medicamentos
-     */
-    public List<Medicamento> getMedicamentos() {
-        return medicamentos;
+    public List<Drug> getDrugList() {
+        return drugList.getList();
+    }
+
+    public int insertEffectLevel(Scanner scan) {
+        return scan.nextInt();
+    }
+
+    public String insertBibliography(Scanner scan) {
+        System.out.print("Introduza a Bibliografia: ");
+        String bibliography = scan.nextLine();
+
+        while (bibliography.length() == 0) {
+            System.out.print("Erro, a Bibliografia não pode ficar vazia, introduza de novo: ");
+            bibliography = scan.nextLine();
+        }
+
+        return bibliography;
+    }
+
+    public String insertFood(Scanner scan) {
+        StringBuilder selectedFoods = new StringBuilder();
+
+        boolean exit = false;
+        while (!exit) {
+            for (int i = 0; i <= foodTypeList.size(); i++) {
+                System.out.format("%s - %s", i, foodTypeList.get(i));
+            }
+
+            System.out.print("Escolha um tipo de alimento: ");
+            int selected = scan.nextInt();
+            selectedFoods.append(foodTypeList.get(selected).getType()).append("|");
+
+            System.out.print("Deseja continuar a indicar tipos de alimentos? s/n: ");
+            String option = scan.nextLine();
+
+            if (option.toLowerCase().equals("y") || option.toLowerCase().equals("yes")) {
+                exit = true;
+            }
+        }
+
+        return selectedFoods.toString();
     }
 }

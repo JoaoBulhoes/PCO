@@ -32,7 +32,7 @@ public class HandlerPesquisa {
      *
      * @param interacao the interacao
      */
-    public void selecionarInteracaoAlimentar(InteracaoAlimentar interacao) {}
+    public void selecionarInteracaoAlimentar(FoodInteraction interacao) {}
 
     /**
      * Cancelar pesquisa interacoes alimentares.
