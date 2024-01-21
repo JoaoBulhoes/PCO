@@ -58,11 +58,13 @@ public class HandlerCriacao {
         boolean exit = false;
         while (!exit) {
             for (int i = 0; i <= foodTypeList.size(); i++) {
-                System.out.format("%s - %s", i, foodTypeList.get(i));
+                System.out.format("%s - %s\n", i, foodTypeList.get(i));
             }
 
-            System.out.print("Escolha uma interacao alimentar: ");
-            int selected = scan.nextInt();
+            System.out.print("\nEscolha uma interacao alimentar: ");
+            int selected = Integer.parseInt(scan.nextLine());
+            System.out.println("");
+
             selectedFoodInteractions.append(foodTypeList.get(selected).getType()).append("|");
 
             System.out.print("Deseja continuar a indicar interaçoes alimentares? s/n: ");
@@ -125,12 +127,12 @@ public class HandlerCriacao {
         return dosage;
     }
 
-    public String inserExplanation(Scanner scan) {
-        System.out.print("Introduza a explicacao: ");
+    public String insertExplanation(Scanner scan) {
+        System.out.print("Introduza a explicação: ");
         String explanation = scan.nextLine();
 
         while (explanation.length() == 0) {
-            System.out.print("Erro, a explicacao não pode ficar vazia, introduza de novo: ");
+            System.out.print("Erro, a explicação não pode ficar vazia, introduza de novo: ");
             explanation = scan.nextLine();
         }
 
@@ -142,18 +144,20 @@ public class HandlerCriacao {
 
         boolean exit = false;
         while (!exit) {
-            for (int i = 0; i <= substancesList.size(); i++) {
-                System.out.format("%s - %s", i, substancesList.get(i));
+            for (int i = 0; i < substancesList.size(); i++) {
+                System.out.format("%s - %s\n", i, substancesList.get(i));
             }
 
-            System.out.print("Escolha uma substancia ativa: ");
-            int selected = scan.nextInt();
+            System.out.print("\nEscolha uma substancia ativa: ");
+            int selected = Integer.parseInt(scan.nextLine());
+            System.out.println("");
+
             selectedSubstances.append(substancesList.get(selected).getSubstance()).append("|");
 
             System.out.print("Deseja continuar a indicar substancias ativas? s/n: ");
             String option = scan.nextLine();
 
-            if (option.toLowerCase().equals("y") || option.toLowerCase().equals("yes")) {
+            if (option.toLowerCase().equals("n") || option.toLowerCase().equals("nao")) {
                 exit = true;
             }
         }
@@ -211,8 +215,9 @@ public class HandlerCriacao {
         return drugList.getList();
     }
 
-    public int insertEffectLevel(Scanner scan) {
-        return scan.nextInt();
+    public String insertEffectLevel(Scanner scan) {
+        System.out.print("Introduza o nivel do efeito: ");
+        return scan.nextLine();
     }
 
     public String insertBibliography(Scanner scan) {
@@ -232,18 +237,20 @@ public class HandlerCriacao {
 
         boolean exit = false;
         while (!exit) {
-            for (int i = 0; i <= foodTypeList.size(); i++) {
-                System.out.format("%s - %s", i, foodTypeList.get(i));
+            for (int i = 0; i < foodTypeList.size(); i++) {
+                System.out.format("%s - %s\n", i, foodTypeList.get(i));
             }
 
-            System.out.print("Escolha um tipo de alimento: ");
-            int selected = scan.nextInt();
+            System.out.print("\nEscolha um tipo de alimento: ");
+            int selected = Integer.parseInt(scan.nextLine());
+            System.out.println("");
+
             selectedFoods.append(foodTypeList.get(selected).getType()).append("|");
 
             System.out.print("Deseja continuar a indicar tipos de alimentos? s/n: ");
             String option = scan.nextLine();
 
-            if (option.toLowerCase().equals("y") || option.toLowerCase().equals("yes")) {
+            if (option.toLowerCase().equals("n") || option.toLowerCase().equals("nao")) {
                 exit = true;
             }
         }

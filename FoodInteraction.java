@@ -7,12 +7,12 @@ import java.util.List;
 public class FoodInteraction {
     private String Bibliography;
     private String Effect;
-    private int EffectLevel;
+    private String EffectLevel;
     private String Explanation;
     private String Food;
     private String Substances;
 
-    public FoodInteraction(String bibliography, String effect, int effectLevel, String explanation, String food, String substances) {
+    public FoodInteraction(String bibliography, String effect, String effectLevel, String explanation, String food, String substances) {
         Bibliography = bibliography;
         Effect = effect;
         EffectLevel = effectLevel;
@@ -101,11 +101,11 @@ public class FoodInteraction {
     public String toString() {
         return "FoodInteraction{" +
                 "Bibliography='" + Bibliography + '\'' +
-                ", Effect='" + Effect + '\'' +
-                ", EffectLevel=" + EffectLevel +
-                ", Explanation='" + Explanation + '\'' +
-                ", Food='" + Food + '\'' +
-                ", Substances='" + Substances + '\'' +
+                "\n  Effect='" + Effect + '\'' +
+                "\n  EffectLevel=" + EffectLevel +
+                "\n  Explanation='" + Explanation + '\'' +
+                "\n  Food='" + Food + '\'' +
+                "\n  Substances='" + Substances + '\'' +
                 '}';
     }
 }

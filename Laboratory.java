@@ -5,8 +5,8 @@ public class Laboratory {
     @Override
     public String toString() {
         return "Laboratory{" +
-                "Name='" + Name + '\'' +
-                ", Surveillance='" + Surveillance + '\'' +
+                "\n  Name='" + Name + '\'' +
+                "\n  Surveillance='" + Surveillance + '\'' +
                 '}';
     }
 

@@ -70,11 +70,11 @@ public class Sistema {
      */
     public void createFoodInteraction() {
         String bibliography = handlerCriacao.insertBibliography(scanner);
-        String effect = handlerCriacao.insertEffect(scanner);
-        int effectLevel = handlerCriacao.insertEffectLevel(scanner);
-        String explanation = handlerCriacao.inserExplanation(scanner);
+        String explanation = handlerCriacao.insertExplanation(scanner);
         String food = handlerCriacao.insertFood(scanner);
         String substances = handlerCriacao.insertSubstance(scanner);
+        String effect = handlerCriacao.insertEffect(scanner);
+        String effectLevel = handlerCriacao.insertEffectLevel(scanner);
 
         if (handlerCriacao.confirmarCriacao(scanner)) {
             handlerCriacao.addFoodInteraction(new FoodInteraction(bibliography, effect, effectLevel, explanation, food, substances));
@@ -98,7 +98,7 @@ public class Sistema {
         System.out.println("Lista de Substâncias Ativas: ");
 
         for (Substance substance : substances) {
-            System.out.println("Nome: " + substance.getSubstance());
+            System.out.println("\nNome: " + substance.getSubstance());
         }
     }
 
@@ -111,12 +111,17 @@ public class Sistema {
         System.out.println("Lista de Interações Alimentares: ");
 
         for (FoodInteraction foodInteraction : foodInteractions) {
-            System.out.println("Nome: " + foodInteraction.getBibliography());
+            System.out.println("\nNome: " + foodInteraction.getBibliography());
             System.out.println("Explicação: " + foodInteraction.getExplanation());
             System.out.println("Efeito: " + foodInteraction.getEffect());
             System.out.println("Lista de Alimentos:");
             for (String food : foodInteraction.getFood().split("\\|")) {
                 System.out.println("- " + food);
+            }
+
+            System.out.println("Lista de Substancias:");
+            for (String substance : foodInteraction.getSubstances().split("\\|")) {
+                System.out.println("- " + substance);
             }
 
         }
@@ -127,7 +132,7 @@ public class Sistema {
 
         System.out.println("Lista de Medicamentos: ");
         for (Drug drug : drugs) {
-            System.out.println("Nome: " + drug.getName());
+            System.out.println("\nNome: " + drug.getName());
             System.out.println("Forma: " + drug.getForm());
             System.out.println("Dosagem: " + drug.getDosage());
             System.out.println("Laboratório: " + drug.getLaboratory());

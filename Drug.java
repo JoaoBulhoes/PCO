@@ -92,10 +92,10 @@ public class Drug {
     public String toString() {
         return "Drug{" +
                 "Name='" + Name + '\'' +
-                ", Form='" + Form + '\'' +
-                ", Dosage='" + Dosage + '\'' +
-                ", Laboratory='" + Laboratory + '\'' +
-                ", Substances='" + Substances + '\'' +
+                "\n  Form='" + Form + '\'' +
+                "\n  Dosage='" + Dosage + '\'' +
+                "\n  Laboratory='" + Laboratory + '\'' +
+                "\n  Substances='" + Substances + '\'' +
                 '}';
     }
 }
