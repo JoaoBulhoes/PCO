@@ -115,7 +115,7 @@ public class Main {
                     s.registerUser();
                     break;
                 case 4:
-                    // so para nao dar erro quando escolher o
+                    // so para nao dar erro quando escolher o login
                     break;
                 case 0:
                     System.out.println("Saindo do programa. Obrigado!");
