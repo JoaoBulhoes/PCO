@@ -9,4 +9,8 @@ public class Laboratory {
                 ", Surveillance='" + Surveillance + '\'' +
                 '}';
     }
+
+    public String getSurveillances() {
+        return Surveillance;
+    }
 }

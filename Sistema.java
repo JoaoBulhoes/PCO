@@ -28,6 +28,14 @@ public class Sistema {
         handlerPesquisa = new HandlerPesquisa(foodTypeList, foodInteractionList, substancesList, drugList, laboratoriesList);
     }
 
+    public void searchFoodInteractions(){
+        System.out.println(handlerPesquisa.searchFoodInteractions(scanner.nextLine()));
+    }
+
+    public void searchLaboratories(){
+        System.out.println(handlerPesquisa.searchLaboratories(scanner.nextLine()));
+    }
+
     /**
      * Criar medicamento.
      */

@@ -21,6 +21,10 @@ public class FoodInteraction {
         Substances = substances;
     }
 
+    public String getSubstances() {
+        return Substances;
+    }
+
     /**
      * Gets nome.
      *
