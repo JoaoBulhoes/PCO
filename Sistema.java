@@ -143,7 +143,6 @@ public class Sistema {
     /**
      * Registar utilizador utilizador.
      *
-     * @param utilizadores the utilizadores
      * @return the utilizador
      */
     public void registerUser() {
@@ -198,7 +197,7 @@ public class Sistema {
             }
         }
 
-        return "erro";
+        return "Erro!";
     }
 
 }
