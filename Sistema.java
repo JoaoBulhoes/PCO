@@ -6,10 +6,9 @@ import java.util.Scanner;
  * The type Sistema.
  */
 public class Sistema {
-    private final Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
-    private List<Utente> utentes = new ArrayList<>();
-    private List<Utilizador> utilizadores = new ArrayList<>();
+    private static List<Utilizador> utilizadores = new ArrayList<>();
 
     private HandlerCriacao handlerCriacao;
     private HandlerPesquisa handlerPesquisa;
@@ -147,34 +146,59 @@ public class Sistema {
      * @param utilizadores the utilizadores
      * @return the utilizador
      */
-    public Utilizador registerUser(List<Utilizador> utilizadores) {
-
-        System.out.println("Insera o seu nome: ");
+    public void registerUser() {
+        System.out.print("Insera o seu nome: ");
         String nome = scanner.nextLine();
-        System.out.println("Insera a sua password: ");
+        System.out.print("Insera a sua password: ");
         String password = scanner.nextLine();
-        System.out.println("Insera o seu email: ");
-        String email;
-        do {
-            System.out.println();
-            email =scanner.nextLine();
+        System.out.print("Insera o seu email: ");
+        String email = scanner.nextLine();
 
-            if (emailAlreadyExists(email, utilizadores)) {
-                System.out.println("Email já existe. Por favor escolha um email diferente.");
-            }
-        } while (emailAlreadyExists(email, utilizadores));
+        System.out.println("1 - admin");
+        System.out.println("2 - farmaceutico");
+        System.out.println("3 - industria");
+        System.out.print("Escolha o seu role (o padrão e user normal): ");
+        String option = scanner.nextLine();
+        String role = switch (option) {
+            case "1" -> "admin";
+            case "2" -> "farma";
+            case "3" -> "industria";
+            default -> "";
+        };
+
+        while (emailAlreadyExists(email, utilizadores)) {
+            System.out.println();
+            email = scanner.nextLine();
+
+            System.out.println("Email já existe. Por favor escolha um email diferente.");
+        }
 
         System.out.println("Utilizador registado!");
-        return new Utilizador(nome, password, email);
+        utilizadores.add(new Utilizador(nome, password, email, role));
     }
 
     private static boolean emailAlreadyExists(String email, List<Utilizador> utilizadores) {
-        for (Utilizador utilizador : utilizadores) {
-            if (utilizador.getEmail().equals(email)) {
+        for (Utilizador Utilizador : utilizadores) {
+            if (Utilizador.getEmail().equals(email)) {
                 return true;
             }
         }
         return false;
+    }
+
+    public String login() {
+        System.out.print("Introduza o seu nome: ");
+        String nome = scanner.nextLine();
+        System.out.print("Introduza a sua password: ");
+        String password = scanner.nextLine();
+
+        for (Utilizador utilizador : utilizadores) {
+            if (utilizador.getNome().equals(nome) && utilizador.getPassword().equals(password)) {
+                return utilizador.getRole();
+            }
+        }
+
+        return "erro";
     }
 
 }

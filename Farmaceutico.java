@@ -1,7 +1,7 @@
 /**
  * The type Farmaceutico.
  */
-public class Farmaceutico extends Utilizador{
+public class Farmaceutico extends Utilizador {
     /**
      * Instantiates a new Farmaceutico.
      *
@@ -9,8 +9,8 @@ public class Farmaceutico extends Utilizador{
      * @param password the password
      * @param email    the email
      */
-    public Farmaceutico(String nome, String password, String email) {
-        super(nome, password, email);
+    public Farmaceutico(String nome, String password, String email, String role) {
+        super(nome, password, email, role);
     }
 
     /**
