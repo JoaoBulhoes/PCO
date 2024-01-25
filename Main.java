@@ -45,10 +45,10 @@ public class Main {
             int opcao = scanner.nextInt();
             validateGeral(opcao);
             switch (opcao) {
-                case 3:
+                case 4:
                     s.searchLaboratories();
                     break;
-                case 4:
+                case 5:
                     s.searchLaboratories();
                     break;
             }
@@ -59,16 +59,16 @@ public class Main {
         while (true) {
             System.out.println("===== Menu do Farmacêutico =====");
             exibirMenuGeral();
-            System.out.println("3. Criar Interação Alimentar");
-            System.out.println("4. Consultar Interações Alimentares");
+            System.out.println("4. Criar Interação Alimentar");
+            System.out.println("5. Consultar Interações Alimentares");
 
             int opcao = scanner.nextInt();
             validateGeral(opcao);
             switch (opcao) {
-                case 3:
+                case 4:
                     s.searchLaboratories();
                     break;
-                case 4:
+                case 5:
                     s.searchLaboratories();
                     break;
             }
@@ -79,16 +79,16 @@ public class Main {
         while (true) {
             System.out.println("===== Menu da Indústria =====");
             exibirMenuGeral();
-            System.out.println("3. Criar Medicamento");
-            System.out.println("4. Consultar Interações Alimentares");
+            System.out.println("4. Criar Medicamento");
+            System.out.println("5. Consultar Interações Alimentares");
 
             int opcao = scanner.nextInt();
             validateGeral(opcao);
             switch (opcao) {
-                case 3:
+                case 4:
                     s.searchLaboratories();
                     break;
-                case 4:
+                case 5:
                     s.searchLaboratories();
                     break;
             }
